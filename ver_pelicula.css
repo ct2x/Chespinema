@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: #fff;
+}
+
+/* este es el header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #121212;
+    color: #fff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.5em;
+}
+
+.perfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+    .logo h1 {
+        font-size: 1.2em;
+    }
+
+    .perfil img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .categoria nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .categoria a {
+        font-size: 0.9em;
+    }
+}
+
+/* este es el de las categorias */
+.categoria {
+    background-color: #121212;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.categoria nav {
+    display: flex;
+    gap: 20px;
+}
+
+.categoria a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.categoria a:hover {
+    color: red; 
+}
+
+
+
+
+.genero {
+    margin: 10px ;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    align-items: center; 
+}
+
+.genero-btn {
+    background-color: red;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.genero-btn:hover {
+    transform: scale(1.05);
+    
+}
+
+
+
+.detalle {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.imagen img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.informacion {
+    flex: 1;
+}
+
+.informacion h2 {
+    font-size: 2em;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+
+
+.reproductor {
+    padding: 20px;
+    background-color: #121212;
+    box-shadow: 0 4px 8px rgba(250, 4, 4, 0.07);
+    margin-top: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.reproductor h3 {
+    font-size: 1.5em;
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}

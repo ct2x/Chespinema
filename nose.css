@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: #fff;
+}
+
+/* este es el header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #121212;
+    color: #fff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.5em;
+}
+
+.perfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+    .logo h1 {
+        font-size: 1.2em;
+    }
+
+    .perfil img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .categoria nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .categoria a {
+        font-size: 0.9em;
+    }
+}
+
+/* este es el de las categorias */
+.categoria {
+    background-color: #121212;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.categoria nav {
+    display: flex;
+    gap: 20px;
+}
+
+.categoria a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.categoria a:hover {
+    color: red; 
+}
+
+
+
+
+/* section y cuerpo y todo eso, lo principal pues */
+main {
+    padding-top: 20px;
+}
+
+section {
+    margin: 20px 0;
+    
+}
+
+section h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    background-color: #121212 ;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(250, 4, 4, 0.07);
+}
+
+
+
+.peliculas{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* diseño de las targetas 
+.contenedor_targeta {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}*/
+
+.targeta {
+    background-color: #242424;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.5s;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.targeta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(248, 2, 2, 0.907);
+
+}
+
+.targeta img {
+    width: 100%;
+    height: auto;
+}
+
+.targeta h3 {
+    font-size: 1.25em;
+    margin: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
