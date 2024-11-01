@@ -45,7 +45,7 @@ $result_subidas = $conn->query($query_subidas);
             <div class="peliculas">
                 <?php while ($row = $result_populares->fetch_assoc()): ?>
                     <div class="contenedor_targeta">
-                        <a href="verpelicula.html"><div class="targeta">
+                        <a href="verpelicula.php"><div class="targeta">
                         <img src="imagenes/<?php echo htmlspecialchars($row['foto']); ?>" alt="Imagen" style="width: 100%; height: auto;">
                             <h3><?php echo htmlspecialchars($row['titulo']); ?></h3>
                         </div>
