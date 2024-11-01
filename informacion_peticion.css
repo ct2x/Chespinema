@@ -1,0 +1,87 @@
+/* detalle_pelicula.css */
+.detalle-validacion {
+    background-color: #181818;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.detalle-validacion h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #f8f8f8;
+}
+
+.detalle-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.usuario-info p {
+    font-size: 1.1em;
+    color: #bbb;
+}
+
+.pelicula-imagen img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pelicula-info h3 {
+    font-size: 1.5em;
+    color: #f8f8f8;
+    margin: 0;
+}
+
+.pelicula-info p {
+    font-size: 1em;
+    color: #bbb;
+}
+
+.pelicula-reproductor video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.acciones-pelicula {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    color: #fff;
+}
+
+.btn.denegar {
+    background-color: #c0392b;
+}
+
+.btn.denegar:hover {
+    background-color: #e74c3c;
+}
+
+.btn.aceptar {
+    background-color: #27ae60;
+}
+
+.btn.aceptar:hover {
+    background-color: #2ecc71;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}

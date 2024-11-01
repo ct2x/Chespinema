@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #121212;
+    color: #fff;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+}
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.5em;
+}
+
+.perfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Estilos de la barra lateral */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 15px 0;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: red;
+}
+
+/* Estilos de la sección principal */
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    background-color: #121212;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(250, 4, 4, 0.07);
+}
+
+
+
+/* Sidebar */
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 15px 0;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: red;
+}
+
+/* Nueva clase para el enlace activo */
+.sidebar a.active {
+    color: red;  /* Color diferente para el enlace activo */
+    font-weight: bold;  /* Opcional: añadir grosor para mayor visibilidad */
+}
+
+
+/* Tira de película */
+.tira-pelicula {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #242424;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+}
+
+
+
+.info-pelicula {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.nombre-pelicula {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    color: #f8f8f8;
+}
+
+.nombre-usuario {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+.acciones-pelicula {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botones */
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn.detalles {
+    background-color: #555;
+}
+
+.btn.detalles:hover {
+    background-color: gray;
+}
+
+.btn.denegar {
+    background-color: #c0392b;
+}
+
+.btn.denegar:hover {
+    background-color: red;
+}
+
+.btn.aceptar {
+    background-color: #27ae60;
+}
+
+.btn.aceptar:hover {
+    background-color: green;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Tabla de usuarios */
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #242424;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-usuarios thead {
+    background-color: #333;
+}
+
+.tabla-usuarios th, .tabla-usuarios td {
+    padding: 15px;
+    text-align: left;
+    color: #fff;
+}
+
+.tabla-usuarios th {
+    font-weight: bold;
+    font-size: 1em;
+    color: #f8f8f8;
+}
+
+.tabla-usuarios tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.tabla-usuarios tr:hover {
+    background-color: #3a3a3a;
+}
+
+.tabla-usuarios td {
+    font-size: 0.9em;
+    border-bottom: 1px solid #444;
+}
+
+/* Efecto de hover para resaltar las filas */
+.tabla-usuarios tr:hover td {
+    color: #e1e1e1;
+}
+
+
+
+
+/* Imagen de la película en la tabla */
+.imagen-pelicula {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
