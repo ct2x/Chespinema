@@ -11,13 +11,19 @@ body {
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #121212;
     color: #fff;
+    z-index: 9999;
+    width: 100%;
 }
+
 .logo{
     display: flex;
     align-items: center;
@@ -68,6 +74,7 @@ body {
 main {
     margin-left: 220px;
     padding: 20px;
+    margin-top: 60px;
 }
 
 section h2 {
@@ -78,6 +85,7 @@ section h2 {
     background-color: #121212;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(250, 4, 4, 0.07);
+    
 }
 
 

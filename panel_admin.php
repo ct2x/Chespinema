@@ -177,4 +177,5 @@
     </main>
     <?php $conn->close(); ?>
 </body>
+<script src="admin.js"></script>
 </html>

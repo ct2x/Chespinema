@@ -77,7 +77,7 @@ session_start();
             <div class="peliculas">
                 <?php while ($row = $result_populares->fetch_assoc()): ?>
                     <div class="contenedor_targeta">
-                        <a href="verpelicula.html">
+                        <a href="verpelicula.php">
                             <div class="targeta">
                                 <img src="imagenes/<?php echo htmlspecialchars($row['foto']); ?>" alt="Imagen"
                                     style="width: 100%; height: auto;">
