@@ -1,59 +1,99 @@
 <?php
-require_once './config/conexion.php';
+require_once 'config/conexion.php';
 
 class Usuario {
     private $conn;
-    private $table = "usuarios";
 
     public function __construct() {
-        $database = new Database();
-        $this->conn = $database->getConnection();
+        global $conn;
+        $this->conn = $conn;
+    }
+
+    public function obtenerDatosUsuario($nombre_usuario) {
+        $stmt = $this->conn->prepare("SELECT * FROM usuarios WHERE usuario = ? AND estatus = 1");
+        $stmt->bind_param("s", $nombre_usuario);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        
+        if ($resultado->num_rows > 0) {
+            return $resultado->fetch_assoc();
+        }
+        return null;
     }
 
     public function verificarCredenciales($nombre_usuario, $contrasena) {
-        $query = "SELECT pk_usuarios, contrasena FROM " . $this->table . " WHERE usuario = :nombre_usuario";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':nombre_usuario', $nombre_usuario);
-        $stmt->execute();
-
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($usuario && password_verify($contrasena, $usuario['contrasena'])) {
-            return $usuario['pk_usuarios']; // Devuelve el ID del usuario si las credenciales son correctas
+        $usuario_data = $this->obtenerDatosUsuario($nombre_usuario);
+        
+        if ($usuario_data && password_verify($contrasena, $usuario_data['contrasena'])) {
+            return $usuario_data['pk_usuarios'];
         }
-        return false; // Devuelve falso si no coincide
+        return false;
     }
 
-
-    // Método para registrar un nuevo usuario
     public function registrar($nombre_usuario, $correo, $tel, $contrasena) {
-        // Verificar si el usuario ya existe
-        $query = "SELECT pk_usuarios FROM " . $this->table . " WHERE usuario = :nombre_usuario OR correo = :correo";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':nombre_usuario', $nombre_usuario);
-        $stmt->bindParam(':correo', $correo);
+        // Verificar si el usuario o correo ya existe
+        $stmt = $this->conn->prepare("SELECT usuario FROM usuarios WHERE usuario = ? OR correo = ?");
+        $stmt->bind_param("ss", $nombre_usuario, $correo);
         $stmt->execute();
-
-        if ($stmt->fetch()) {
-            return "El nombre de usuario o correo ya están en uso.";
+        if ($stmt->get_result()->num_rows > 0) {
+            return "El nombre de usuario o correo ya está en uso";
         }
 
+        // Hash de la contraseña
+        $hash = password_hash($contrasena, PASSWORD_DEFAULT);
+        
         // Insertar nuevo usuario
-        $query = "INSERT INTO " . $this->table . " (usuario, correo, tel, contrasena) VALUES (:nombre_usuario, :correo, :tel, :contrasena)";
-        $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(':nombre_usuario', $nombre_usuario);
-        $stmt->bindParam(':correo', $correo);
-        $stmt->bindParam(':tel', $tel);
-
-        // Encriptar la contraseña antes de guardarla
-        $contrasena_hash = password_hash($contrasena, PASSWORD_DEFAULT);
-        $stmt->bindParam(':contrasena', $contrasena_hash);
-
+        $stmt = $this->conn->prepare("INSERT INTO usuarios (usuario, contrasena, correo, tel, estatus, fecha_creacion, tipo_usuario) VALUES (?, ?, ?, ?, 1, NOW(), 0)");
+        $stmt->bind_param("ssss", $nombre_usuario, $hash, $correo, $tel);
+        
         if ($stmt->execute()) {
-            return true; // Registro exitoso
+            return true;
         } else {
-            return "Error al registrar el usuario. Inténtalo de nuevo.";
+            return "Error al registrar el usuario: " . $this->conn->error;
         }
     }
+
+    public function actualizarPerfil($usuario_id, $datos) {
+        $query_parts = [];
+        $types = "";
+        $values = [];
+    
+        if (isset($datos['nombre_usuario'])) {
+            $query_parts[] = "usuario = ?";
+            $types .= "s";
+            $values[] = $datos['nombre_usuario'];
+        }
+    
+        if (isset($datos['correo'])) {
+            $query_parts[] = "correo = ?";
+            $types .= "s";
+            $values[] = $datos['correo'];
+        }
+    
+        if (isset($datos['tel'])) {
+            $query_parts[] = "tel = ?";
+            $types .= "s";
+            $values[] = $datos['tel'];
+        }
+    
+        if (isset($datos['foto'])) {
+            $query_parts[] = "foto = ?";
+            $types .= "s";
+            $values[] = $datos['foto'];
+        }
+    
+        if (empty($query_parts)) {
+            return false;
+        }
+    
+        $query = "UPDATE usuarios SET " . implode(", ", $query_parts) . " WHERE pk_usuarios = ?";
+        $types .= "i";
+        $values[] = $usuario_id;
+    
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param($types, ...$values);
+        
+        return $stmt->execute();
+    }
+    
 }

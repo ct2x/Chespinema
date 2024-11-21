@@ -3,7 +3,7 @@ require_once './model/Usuario.php';
 
 class RegistroController {
     public function mostrarFormulario() {
-        require './nose.php';
+        require './index.php';
     }
 
     public function registrarUsuario() {
@@ -15,14 +15,15 @@ class RegistroController {
 
             $usuario = new Usuario();
             $resultado = $usuario->registrar($nombre_usuario, $correo, $tel, $contrasena);
-
             if ($resultado === true) {
-                header("Location: ./nose.php"); // Redirige al login tras el registro exitoso
+                $_SESSION['registro_success'] = 'Registro exitoso';
+                header("Location: ./index.php");
                 exit();
             } else {
-                $error = $resultado; // Muestra el mensaje de error de registro
+                $_SESSION['registro_error'] = 'El nombre de usuario o correo ya está en uso';
+                header("Location: ./index.php");
+                exit();
             }
         }
-        require './nose.php';
     }
 }

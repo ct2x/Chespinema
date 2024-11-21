@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 // Obtener datos del formulario
 $titulo = $_POST['titulo'];
 $descripcion = $_POST['descripcion'];
-$estatus = $_POST['estatus'];
+$estatus = 1;
 $url = $_POST['url'];
 $fk_genero = $_POST['fk_genero'];
 $fecha_subida = date("Y-m-d H:i:s"); // Fecha y hora actual
@@ -26,7 +26,7 @@ if (move_uploaded_file($ruta_temp, $carpeta_destino)) {
             VALUES ('$titulo', '$descripcion', '$foto', '$url', '$estatus', '$fecha_subida', '$fk_genero')";
 
     if ($conn->query($sql) === TRUE) {
-        header("location: nose.php");
+        header("location: index.php");
     } else {
         echo "<p>Error al insertar la película: " . $conn->error . "</p>";
     }

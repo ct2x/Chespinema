@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cuando el usuario hace click en el botón, se abre la ventana
     boton.addEventListener("click", function() {
-        modal.style.display = "block";
+        modal.style.display = "flex";
     });
 
     // Si el usuario hace click en la x, la ventana se cierra

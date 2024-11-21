@@ -25,6 +25,14 @@ body {
     align-items: center;
 }
 
+.perfil{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
 .logo img {
     width: 40px;
     height: 40px;
@@ -161,4 +169,19 @@ body {
     color: red;
     text-align: center;
     margin-bottom: 10px;
+}
+
+.login-button{
+    border-radius: 12px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+}
+
+.login-button:hover{
+    scale: 1.03;
+    background-color: red;
 }

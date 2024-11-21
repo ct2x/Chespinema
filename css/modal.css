@@ -4,17 +4,19 @@
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 200px;
+    /*padding-top: 50%;*/
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    /*overflow: auto;*/
     background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content{
-    position: relative;
+    /*position: relative;*/
     background-color: #181818;
     margin: auto;
     padding: 20px;
@@ -77,14 +79,14 @@
     padding: 5px 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: #26bbff;
+    background-color: #c0392b;
     color: white;
     border: none;
 }
 
 .login-button:hover{
     scale: 1.03;
-    background-color: #1e9fdb;
+    background-color: red;
 }
 
 .login-form input{
@@ -95,7 +97,7 @@
 
 .login-form input:focus{
     outline: none;
-    border: #26bbff solid 2px;
+    border: red solid 2px;
 }
 
 .linea{

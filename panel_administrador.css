@@ -12,6 +12,8 @@ body {
 
 .header {
     display: flex;
+    position: fixed;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -72,11 +74,13 @@ main {
 
 section h2 {
     text-align: center;
+    
     font-size: 1.5em;
     margin-bottom: 15px;
     color: #fff;
     background-color: #121212;
     padding: 20px;
+    margin-top: 50px;
     box-shadow: 0 4px 8px rgba(250, 4, 4, 0.07);
 }
 
@@ -237,7 +241,30 @@ section h2 {
 }
 
 
-
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: black;
+}
+.pagination .current {
+    background-color: #007bff;
+    color: white;
+}
+.search-container {
+    margin-bottom: 20px;
+}
+.search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
 
 

@@ -1,0 +1,20 @@
+.buscador {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.buscador input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.buscador input:focus {
+    border-color: red;
+}

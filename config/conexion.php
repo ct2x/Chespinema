@@ -1,9 +1,9 @@
 <?php
 class Database {
-    private $host = "localhost";
-    private $db_name = "chespinema";
-    private $username = "root";
-    private $password = "";
+    private $host = "https://proyectosidgs.com/bd/";
+    private $db_name = "proye477_chespinema";
+    private $username = "proye477_chespinema";
+    private $password = "proye477_chespinema";
     public $conn;
 
     public function getConnection() {
